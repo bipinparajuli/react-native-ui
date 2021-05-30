@@ -1,9 +1,12 @@
 import React from 'react'
-import { SafeAreaView,View, Text, Image,StyleSheet } from 'react-native'
+import { SafeAreaView,View, Text, Image,StyleSheet, Dimensions } from 'react-native'
 import { FlatList, ScrollView, TextInput } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Feather'
 import highlights from '../data/banner'
 import categories from "../data/categories"
+
+
+const {width,height} = Dimensions.get("window")
 
 export default function HomeScreen() {
 
@@ -142,7 +145,11 @@ categorySubTitle:{
 fontFamily:"Montserrat-Regular",
 color:"#4f7985",
 textDecorationLine:"underline"
+},
+footerIcon:{
+    color:"#6d8f9a"
 }
+
 
     });
 
@@ -188,8 +195,13 @@ console.log(item);
     <View style={style.search}>
         <View style={style.searchWrapper}>
             <Icon name="search" size={20} style={style.searchIcon} />
-            <TextInput placeholder="Search for anything"/>
+            <TextInput 
+            placeholder="Search for anything"
+            />
         </View>
+
+        </View>
+
 <View style={style.highlightWrapper}>
     
     <FlatList           
@@ -209,26 +221,59 @@ console.log(item);
         <View>
         <Text style={style.categorySubTitle}>See all</Text>
         </View>
-
-
     </View>
 <ScrollView 
 style={{marginTop:10}}
 >
 {
     categories.map((chunk,i)=>{
-       console.log(chunk);
         return (
-            <View key={i}>
+            <View key={i} style={{
+flexDirection:"row",
+justifyContent:"center",
+marginTop:10
+}}>
 
-            {chunk.map((category)=>(
-                <View>
-                    <View>
-                        <Image source={category.image} />
-                        <Text>{category.title}</Text>
-                    </View>
-                </View>
-            ))}
+            {chunk.map((category)=>
+   {
+
+    return(
+        <View key={category.id} style={{
+            width:width/3-30,
+            marginHorizontal:10,
+            justifyContent:"center",
+            marginBottom:20
+
+        }}>
+            <View
+            style={{
+                position:"absolute",
+                top:0,
+                backgroundColor:"#def6e6",
+                width:width/3-30,
+                height:width/3-60
+            }}
+            />
+            <View>
+                <Image 
+                style={{
+                    width:width/3-30,
+                    height:width/3-30
+                }}
+                source={category.image} />
+                <Text
+                style={{
+                    textAlign:"center",
+                    fontFamily:"Montserrat-Regular"
+                }}
+                >{category.title}</Text>
+            </View>
+        </View>
+    )
+   }         
+                   
+            )
+            }
             </View>
             
         )
@@ -236,8 +281,45 @@ style={{marginTop:10}}
 }
 </ScrollView>
 </View>
-
+<View style={{
+    position:"absolute",
+    width,
+    bottom:0,
+    paddingBottom:60,
+    paddingTop:20,
+    paddingHorizontal:20,
+    backgroundColor:"#fff",
+    shadowColor:"#000",
+    shadowOffset:{
+        height:-2,
+        width:0
+    },
+    shadowRadius:10,
+    shadowOpacity:0.5
+}}>
+    <View
+    style={{
+        flexDirection:"row",
+        paddingHorizontal:20,
+        justifyContent:"space-around"
+    }}
+    >
+        <View>
+            <Icon name="home" size={24} style={style.footerIcon} />
+        </View>
+        <View>
+            <Icon name="grid" size={24} style={style.footerIcon} />
+        </View><View>
+            <Icon name="percent" size={24} style={style.footerIcon} />
+        </View><View>
+            <Icon name="shopping-bag" size={24} style={style.footerIcon} />
+        </View><View>
+            <Icon name="more-horizontal" size={24} style={style.footerIcon} />
+        </View>
     </View>
+</View>
+
+
 </View>
         
     )
