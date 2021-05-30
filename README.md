@@ -2,4 +2,4 @@
 
 ## First UI
 
-![day-1 image](./Assets/day1.jpg)
+![day-1 image](./assets/day1.jpg)
