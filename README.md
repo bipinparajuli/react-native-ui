@@ -2,4 +2,4 @@
 
 ## First UI
 
-![Bipin GitHub Banner](./Assets/day1.jpg)]
+![Bipin GitHub Banner](./Assets/day1.jpg)
