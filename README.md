@@ -3,3 +3,9 @@
 ## First UI
 
 ![day-1 image](./assets/day1.jpg)
+
+## Second UI
+
+
+![day-1 image](./assets/day-2.jpg)
+
