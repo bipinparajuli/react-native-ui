@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView,View, Text, Image,StyleSheet, Dimensions } from 'react-native'
+import { SafeAreaView,View, Text, Image,StyleSheet, Dimensions,TouchableOpacity } from 'react-native'
 import { FlatList, ScrollView, TextInput } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Feather'
 import highlights from '../data/banner'
@@ -8,7 +8,7 @@ import categories from "../data/categories"
 
 const {width,height} = Dimensions.get("window")
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
 
     const style = StyleSheet.create({
         container:{
@@ -228,7 +228,9 @@ style={{marginTop:10}}
 {
     categories.map((chunk,i)=>{
         return (
-            <View key={i} style={{
+            <TouchableOpacity
+            onPress={()=>navigation.navigate("Details")}
+            key={i} style={{
 flexDirection:"row",
 justifyContent:"center",
 marginTop:10
@@ -274,7 +276,7 @@ marginTop:10
                    
             )
             }
-            </View>
+            </TouchableOpacity>
             
         )
     })
