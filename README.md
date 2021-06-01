@@ -7,5 +7,9 @@
 ## Second UI
 
 
-![day-1 image](./assets/day-2.jpg)
+![day-2 image](./assets/day-2.jpg)
 
+## Third UI
+
+
+![day-3 image](./assets/day-3.jpg)
