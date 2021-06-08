@@ -32,4 +32,10 @@
 
 ![day-7  image](./assets/day-7.jpg)
 
+## Eight UI
+
+
+![day-8  Video](./assets/day-8.gif)
+
+
 ### comming soon ... 
